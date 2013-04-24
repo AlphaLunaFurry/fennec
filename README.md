@@ -1,17 +1,21 @@
 Fennec Overlay
 ==============
 
-The Fennec Overlay, a rootless and utterly decentralized Internet Protocol replacement.
+The Fennec Overlay is a rootless and purely decentralized Internet Protocol and Ethernet replacement.
+It takes the best of peer-to-peer overlay technologies and techniques and puts them directly 
+at layer 2, where they belong. While it is intended to serve as an overlay initially, the endgame
+is to replace IP and carrier Ethernet and tunnel carrier Ethernet, MPLS, IPv4 and IPv6 over it.
 
 
 Concept
-=======
+-------
 
 The basic concept of the Fennec Overlay, despite the name, is to replace the Internet Protocol completely.
 
 The reason for calling it an overlay is due to the fact that building infrastructure 
 on the same scale as the Internet is ridiculously expensive, and so tunneling over the Internet 
 in the initial phases of testing and deployment is a critically vital strategy.
+
 
 Replacing all 7 OSI Layers
 --------------------------
@@ -21,6 +25,7 @@ protocol stack from the physical network interface cards all of the way up
 to application layer protocols, in other words, it is not merely an overlay.
 
 It is an entire complete protocol stack.
+
 
 Yo Dawg I Herd U Liek Networks
 ------------------------------
@@ -32,6 +37,7 @@ By this, I mean UDP with elaborate hole-punching.
 
 Eventually, however, it will be the other way around, with Fennec carrying 
 legacy IPv4 and IPv6 packets over it similarly to carrier ethernet or MPLS is used for today.
+
 
 General Design Principles
 -------------------------
@@ -54,6 +60,7 @@ at the hardware layer, such as within network interface card or home gateway chi
 label switching circuits need to be built, first. This means routing. Routing is conducted via
 a Kademlia-style routing algorithm. 
 
+
 This Project
 ------------
 
@@ -66,4 +73,8 @@ The cryptography will largely be handled by NaCl, GNU Privacy Guard, Off-The-Rec
 The demonstration application will use CMake, wxWidgets, possibly GLADE, and for Windows ports, Py2Exe, 
 NSIS and the BattleTorrent plug-in for NSIS.
 
+Further Notes
+-------------
 
+This Project is in its infancy, and only exists on GitHub at all because my friends have been 
+pestering me incessantly about creating a repo for it.
