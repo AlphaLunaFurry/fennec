@@ -70,7 +70,7 @@ The overlay networking will use TeleHash, ZeroMQ, MsgPack, Twisted, SQLAlchemy a
 
 The cryptography will largely be handled by NaCl, GNU Privacy Guard, Off-The-Record and OpenSSL.
 
-The demonstration application will use CMake, wxWidgets, possibly GLADE, and for Windows ports, Py2Exe, 
+The demonstration application will use SCons, wxWidgets, possibly GLADE, and for Windows ports, Py2Exe, 
 NSIS and the BattleTorrent plug-in for NSIS.
 
 Further Notes
