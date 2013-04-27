@@ -205,7 +205,7 @@ This Project
 
 For the reference implementation and proof of concept, we will use Python.
 
-The overlay networking will use TeleHash, ZeroMQ, MsgPack, Twisted, SQLAlchemy and ProtoBuf.
+The overlay networking will use TeleHash, ZeroMQ, MsgPack, libSwift, Twisted, SQLAlchemy and ProtoBuf.
 
 The cryptography will largely be handled by NaCl, GNU Privacy Guard, Off-The-Record and OpenSSL.
 
