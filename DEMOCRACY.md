@@ -1,8 +1,8 @@
-Fennec Fyre Command
+Fennec Fire Command
 ===================
 
-Fennec Fyre Command is a module built on top of the Fennec Overlay that extends 
-the functionality of Fennec Fyre and Fennec Share to provide distributed
+Fennec Fire Command is a module built on top of the Fennec Overlay that extends 
+the functionality of Fennec Fire and Fennec Litter to provide distributed
 decisionmaking, collaborative policymaking, liquid or direct democracy, and/or
 open source collaborative lawmaking.
 
@@ -26,3 +26,10 @@ with the responsibility of earning those paychecks by providing essential servic
 to the people who gave them those jobs.
 
 This WILL stop.
+
+This is why Fennec Fire Command is important. By completely distributing decisionmaking, and
+when combined with Fennec Litter Watch, Fennec Fire Light, Fennec Moon Song, Fennec Moon Chorus,
+and other modules for the Fennec Overlay, governing ourselves was never easier.
+
+The only way to eliminate tyrants is to destroy the concentration of power, and the centralization
+of authority and responsibility.
