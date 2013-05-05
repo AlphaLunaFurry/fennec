@@ -1,7 +1,7 @@
-Fennec Fyre Magi
+Fennec Fire Mage
 ================
 
-Fennec Fyre Magi is a mentoring and tutoring system build on top of the Fennec Overlay, 
+Fennec Fire Mage is a mentoring and tutoring system build on top of the Fennec Overlay, 
 and extends the functionality of the Fennec Fyre and Fennec Share modules, which provide
 social network functionality and content distribution, respectively, to be able to share
 skills, educational materials, tutorials and howtos, and other education and training content.
@@ -23,3 +23,13 @@ to search for a job like all of the students he has carelessly and thoughtlessly
 
 The formal education system will be destroyed, 
 and starve to death in the dustbin of history.
+
+This is why Fire Mage is so important. In order to render the formal education system irrelevent,
+freelance teachers and professors need to be able to crowdfund research projects and large-scale
+educational materials, tutorials and college courses.
+
+Tutors, teachers and professors should be able to self-organize into student-owned or parent-owned
+cooperative virtual schools or universities.
+
+This balances out the abuses of unequal power by formal educational institutions 
+and the evil people that enforce the system and monopoly on education and skill training.
