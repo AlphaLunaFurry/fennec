@@ -1,7 +1,7 @@
 Fennec Fire Mage
 ================
 
-Fennec Fire Mage is a mentoring and tutoring system build on top of the Fennec Overlay, 
+Fire Mage is a mentoring and tutoring system build on top of the Fennec Overlay, 
 and extends the functionality of the Fennec Fyre and Fennec Share modules, which provide
 social network functionality and content distribution, respectively, to be able to share
 skills, educational materials, tutorials and howtos, and other education and training content.

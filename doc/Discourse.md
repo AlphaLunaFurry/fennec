@@ -1,10 +1,12 @@
 Fennec Den Gallery
 ==================
 
-The Den Gallery is a Fennec Overlay module for asynchronous communications such as forums, 
-podcast-like media feeds, email, artwork submission and subscription, group discussions, and more.
+The Den Gallery is a asynchronous communications such as forums, 
+podcast-like media feeds, email, artwork submission and subscription, 
+group discussions, and more built on top of the Fennec Overlay.
 
-Fully integrated with Fennec Fyre and Fennec Litter, it focuses on asynchronous and threaded discussion, 
+Fully integrated with Fennec Fyre and Fennec Litter, 
+it focuses on asynchronous and threaded discussion, 
 more serious and persistent than either Fennec Fyre or Fennec Moon.
 
 Introduction

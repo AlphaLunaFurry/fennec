@@ -1,10 +1,9 @@
 Fennec Fire Command
 ===================
 
-Fennec Fire Command is a module built on top of the Fennec Overlay that extends 
-the functionality of Fennec Fire and Fennec Litter to provide distributed
-decisionmaking, collaborative policymaking, liquid or direct democracy, and/or
-open source collaborative lawmaking.
+Fire Command is distributed decisionmaking, collaborative policymaking, 
+liquid or direct democracy, and/or open source collaborative lawmaking
+built on top of the Fennec Overlay as a module.
 
 Introduction
 ------------
