@@ -28,3 +28,17 @@ Hyperboria and test the CJDNS network. For a good demonstration, attempt
 some latency and bandwidth demanding applications such as SIP video conferencing,
 first-person shooter video games or virtual world games, such as team fortress 2,
 minecraft and jitsi, all of which work over linux.
+
+Kademlia routing can be reasonably fast, see Telehash for a live testbed network 
+that relies on that. CJDNS uses kademlia routing, at the time of writing, May 2013, 
+but that network is constantly evolving, and they may use something better, now.
+
+Although the focus of the Fennec Overlay is not on the physical line design, the
+concept for Fennec (the internetwork) is that Fennec nodes run, not only 
+in kernelmode within the host operating system's kernelmode network stack, but
+also on every Fennec port's network interface chipset.
+
+For example, if you plug in a USB Fennec interface dongle to your laptop, 
+the Fennec network interface chipset within the dongle contains a minimal
+Linux installation over an arm or mips core, running a Fennec overlay instance in 
+device mode.
