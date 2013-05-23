@@ -35,3 +35,30 @@ Hashing algorythm used is SHA-3-512 (Keccak-512)
 Difficulty is a block roughly every 30 seconds.
 Keypairs are ECC by way of NaCl crypto.
 Convention for confirmations should be 2 confirms.
+
+Experimental Features
+---------------------
+
+Interestingly enough, there are some rather fascinating systems
+out there involving more advanced proof-of-work and other
+systems, in addition to sequential memory hardness and
+to make
+the coin resistant to fpga and asic mining domination.
+
+I find that fascinating. For more information, open a new tab
+https://duckduckgo.com/?q=tenebrix and another new tab
+at https://duckduckgo.com/?q=proof+of+stake
+
+Foxcoin over The Fennec Overlay
+
+These techniques and protections, when combined 
+with a powerful overlay such as fennec tor
+(a forked version of tor with an alternative set of
+directory authorities and independent relays)
+tunneled over cjdns over onioncat over i2p.
+
+i2p is used to prevent the cjdns nodes from being 
+targets for physical attack an compromise.
+
+The alternative foxcoin cryptocurrency would be tunneled
+over that for now, until a better system is created.
