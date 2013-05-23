@@ -45,6 +45,60 @@ By taking the most bold, visionary, and aggressive features and improvements of 
 Fennec becomes a very strong, bold, forceful, and dominant new project that seeks to pin the Web down
 and take it without mercy.
 
+Interim Implementation for Proof-of-Concept
+===========================================
+
+In the interim for proof-of-concept and initial experimentation, we will use pre-existing software
+to emulate the abstract model.
+
+These pre-existing tools are obviously unsuitable in the long run, but permit a very quick-and-dirty
+implementation for demonstrative and educational purposes.
+
+The basic interim model is as follows:
+
+Primary Anonymity Layer
+-----------------------
+
+I2P
+
+Compatibility Layer 1
+---------------------
+
+GarliCat (OnionCat for I2P)
+
+Primary Overlay
+---------------
+
+CJDNS
+
+Secondary Anonymity Layer
+-------------------------
+
+Tor (with alternative directory and bridge authorities within cjdns)
+
+Compatibility Layer 2
+---------------------
+
+QuickTun (with nonce nacl crypto; no kill like overkill)
+
+Secondary Overlay
+-----------------
+
+PSYC1 (forked old federated form of PSYC, repurposed to avoid gnuNET)
+
+FoxCoin (alternative blockchain protected with Tor over CJDNS over I2P)
+
+Bittorrent (Pure DHT over CJDNS, using trackers ONLY for bootstrapping DHT)
+
+App Layer
+---------
+
+Any applications would be at this layer, and by convention, should be integrated
+with underlying layers if possible.
+
+Relying on DHTs protected from Sybil attacks by relying on the underlying 
+friend-to-friend CJDNS to isolate and eliminate Sybil attacks, while relying on
+I2P to prevent security compromise and physical attack upon public CJDNS nodes.
 
 Replacing all 7 OSI Layers
 ==========================
