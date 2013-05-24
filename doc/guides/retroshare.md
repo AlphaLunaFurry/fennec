@@ -1,13 +1,14 @@
 TODO
-====
+----
 
 Write a comprehensive guide to smarter and more effective use of RetroShare, 
 as well as clear and informative instructions on how to connect to
 relay servers, introduction servers, and how to use RetroShare over
 Tor and i2p.
 
-Notice
-------
+
+Fair Warning
+============
 
 Although RetroShare has vastly improved the last two years as of this
 writing (May 2013), RetroShare has significant flaws, including
