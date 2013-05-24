@@ -1,5 +1,5 @@
 Fennec Den Gallery
-==================
+------------------
 
 The Den Gallery is a asynchronous communications such as forums, 
 podcast-like media feeds, email, artwork submission and subscription, 
@@ -10,7 +10,7 @@ it focuses on asynchronous and threaded discussion,
 more serious and persistent than either Fennec Fyre or Fennec Moon.
 
 Introduction
-------------
+============
 
 Art communities such as DeviantArt, InkBunny, YouTube and others allow you to share content,
 but do not protect basic liberties, and often abuse artists in unthinkable ways.

@@ -1,5 +1,5 @@
 Fennec Barter Foxcoin
-==============
+---------------------
 
 Fennec FoxCoin is an alternative blockchain cryptocurrency 
 that uses a similar design to bitcoin or litecoin, 
@@ -7,7 +7,7 @@ while making tons of small adjustments, anonymity protections,
 difficulty in interception, detection or interferance.
 
 Introduction
-------------
+============
 
 The primary weaknesses of Bitcoin revolve around 
 how trivial tracing the origin of a transaction is, 
@@ -29,7 +29,7 @@ to tip anyone at any time, and make paying for favors trivial and
 stupid simple.
 
 Network Rules
--------------
+=============
 
 Hashing algorythm used is SHA-3-512 (Keccak-512)
 Difficulty is a block roughly every 30 seconds.
@@ -37,7 +37,7 @@ Keypairs are ECC by way of NaCl crypto.
 Convention for confirmations should be 2 confirms.
 
 Experimental Features
----------------------
+=====================
 
 Interestingly enough, there are some rather fascinating systems
 out there involving more advanced proof-of-work and other
@@ -50,6 +50,7 @@ https://duckduckgo.com/?q=tenebrix and another new tab
 at https://duckduckgo.com/?q=proof+of+stake
 
 Foxcoin over The Fennec Overlay
+===============================
 
 These techniques and protections, when combined 
 with a powerful overlay such as fennec tor

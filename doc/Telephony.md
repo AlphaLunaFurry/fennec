@@ -1,11 +1,11 @@
 Fennec Moon Howl
-================
+----------------
 
 Moon Howl is voice and video telephony built on top of the Fennec Overlay
 as a module extending the general instant messaging provided by Fennec Moon.
 
 Introduction
-------------
+============
 
 As everyone knows, the telephone companies and other incumbent telephony providers, 
 including mobile carriers, are all wildly abusive toward their customers, especially

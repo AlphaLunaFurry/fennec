@@ -1,5 +1,5 @@
 Replacing all 7 OSI Layers
-==========================
+--------------------------
 
 The Fennec Overlay's ultimate and final goal is to redesign and rebuild the entire Internet's
 protocol stack from the physical network interface design all of the way up to 
@@ -15,7 +15,7 @@ routing, and other annoyances.
 
 
 Cable Layer
------------
+===========
 
 The first layer will consist mostly of multimode fiber. 
 
@@ -28,7 +28,7 @@ datacenters, and finally across peering and transit cross-connects.
 
 
 Flit Layer
-----------
+==========
 
 At the flit switching layer, Juniper/Cray-like flit switching fabric forwards relatively small frames 
 which flow over a fabric that explodes the data plane and control plane of the traditional switch chassis, 
@@ -57,7 +57,7 @@ switch node failure or congestion.
 
 
 Key Layer
----------
+=========
 
 Individual identities then layer logically and virtually on top of this global backplane, MAC and IP 
 addresses combined and replaced with ECC public keys, and wormhole switching building circuits 
@@ -75,7 +75,7 @@ state synchronization and regeneration.
 
 
 Context Layer
--------------
+=============
 
 The multicast primitive operates similarly to IP Multicast in some ways, but is a lot more elaborate. 
 The control channel is distributedly fast-switched, in other words, the route table is distributed, and
@@ -117,7 +117,7 @@ backplane with a few additional optimizations for reliability and geographical s
 
 
 Service Layer
--------------
+=============
 
 All identities are contexts, and in general, all contexts serve multiple functions. Contexts that serve as
 user 'account' or 'username' identification also serve as the 'name' for a groupchat-like context, which permits 

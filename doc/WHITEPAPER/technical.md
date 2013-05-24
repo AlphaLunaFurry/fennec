@@ -1,9 +1,9 @@
 Technical Stuff
-===============
+---------------
 
 
 Technical Introduction
-----------------------
+======================
 
 What follows you can safely skip past to "Replacing all 7 OSI Layers" if you aren't
 a super-genius mad scientist who builds robot armies and death rays in your backyard 
@@ -16,7 +16,7 @@ and mutlichassis switching fabrics.
 
 
 Proof-of-Concept
-================
+----------------
 
 In the interim for proof-of-concept and initial experimentation, we will use pre-existing software
 to emulate the abstract model.
@@ -28,28 +28,28 @@ The basic interim model is described below.
 
 
 Primary Anonymity Layer
------------------------
+=======================
 
 I2P Invisible Internet Project
 http://www.i2p2.de/intro.html
 
 
 Compatibility Layer 1
----------------------
+=====================
 
 GarliCat (OnionCat for I2P)
 https://www.cypherpunk.at/onioncat/wiki/GarliCat
 
 
 Primary Overlay
----------------
+===============
 
 CJDNS Encrypted Networking Engine
 https://github.com/cjdelisle/cjdns/blob/master/rfcs/Whitepaper.md
 
 
 Secondary Anonymity Layer
--------------------------
+=========================
 
 Tor (with alternative directory and bridge authorities within cjdns)
 https://blog.torproject.org/blog/ipv6-future-i-hear
@@ -57,14 +57,14 @@ https://www.torproject.org/docs/tor-manual-dev.html.en
 
 
 Compatibility Layer 2
----------------------
+=====================
 
 QuickTun (with nonce nacl crypto; no kill like overkill)
 http://wiki.ucis.nl/QuickTun
 
 
 Secondary Overlay
------------------
+=================
 
 PSYC1 (forked old federated form of PSYC, repurposed to avoid gnuNET)
 http://about.psyc.eu/PSYC
@@ -75,7 +75,7 @@ Bittorrent (Pure DHT over CJDNS, using trackers ONLY for bootstrapping DHT)
 
 
 App Layer
----------
+=========
 
 Any applications would be at this layer, and by convention, should be integrated
 with underlying layers if possible.

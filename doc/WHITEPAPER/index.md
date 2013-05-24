@@ -1,5 +1,5 @@
-Preface
-=======
+Disclaimer
+----------
 
 I should probably note that I'm currently broke 
 and have no way to commission freelance technical writers 

@@ -1,5 +1,5 @@
 Fennec Overlay
-==============
+--------------
 
 The Fennec Overlay is a rootless and purely distributed Internet Protocol and Ethernet replacement.
 
@@ -9,7 +9,7 @@ improbable, while only incurring a minimal performance penalty even when fully a
 It combines many existing but isolated and obscure projects and intitiatives, 
 and integrates them into a cohesive whole. 
 
-Fennec will eventually eventually be completely rewritten, with every dependency
+Fennec will eventually be completely rewritten, with every dependency
 of every component being forked and independantly maintained for perfect integration and cohesion.
 
 In the meantime, the top-most layers of Fennec can operate over existing low-level
@@ -17,7 +17,7 @@ network protocols.
 
 
 Concept
--------
+=======
 
 Fennec aims to virtualize and converge all communications, connecting your device's system bus 
 directly to that of those you care about.
@@ -36,7 +36,7 @@ to achieve perfect decentralization while maintaining realtime speeds very close
 Fennec is intended to make traffic interception and inspection exceedingly difficult 
 for any parties other than those communicating.
 
-Borrowing many concepts from CJDNS, I2P, RetroShare, SecureShare, BitTorrent Chat and IRC DCC SCHAT, the 
+Borrowing many concepts from CJDNS, I2P, RetroShare and PSYC, using these as interim proof-of-concept, the 
 Fennec Overlay seeks to solve hard problems with the fundemental failures and critical flaws in the 
 current Internet architecture and infrastructure.
 
@@ -51,7 +51,7 @@ and take it without mercy.
 
 
 Proof-of-Concept
-================
+----------------
 
 In the interim for proof-of-concept and initial experimentation, we will use pre-existing software
 to emulate the abstract model.
@@ -64,7 +64,7 @@ The list of components and a description of each layer can be found in the "Tech
 
 
 Yo Dawg
-=======
+-------
 
 Obviously, the Fennec Overlay, by necessity, will need to have a very sophisticated overlay
 design and architecture to tunnel over the existing Internet Protocol infrastructure and protocols.
@@ -77,7 +77,7 @@ legacy IPv4 and IPv6 packets over it similarly to how carrier Ethernet or MPLS i
 
 
 This Project
-============
+------------
 
 For the reference implementation and proof of concept, we will use Python.
 
@@ -93,7 +93,7 @@ should be close enough to the high-level design to prove the concept.
 
 
 Further Notes
--------------
+=============
 
 This Project is in its infancy, and only exists on GitHub at all because my friends have been 
 pestering me incessantly about creating a repo for it.

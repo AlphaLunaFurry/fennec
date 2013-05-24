@@ -1,12 +1,12 @@
 Fennec Fire Command
-===================
+-------------------
 
 Fire Command is distributed decisionmaking, collaborative policymaking, 
 liquid or direct democracy, and/or open source collaborative lawmaking
 built on top of the Fennec Overlay as a module.
 
 Introduction
-------------
+============
 
 Gone are the days of omnipotent kings, ruling by divine right, waging petty wars 
 against other divine kings while ignoring the suffering of the people they are

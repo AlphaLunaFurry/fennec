@@ -1,12 +1,12 @@
 Some Notes on Fennec Link
-=========================
+-------------------------
 
 Fennec Link is a high-performance layer 2 protocol. It does not directly protect anonymity, but
 does encrypt end-to-end at the network interface device level.
 
 
 Introduction
-------------
+============
 
 Fennec aims to virtualize and converge all communications, connecting your device's system bus 
 directly to that of those you care about, creating a huge virtual machine that can scale
@@ -18,7 +18,7 @@ generally used in multiprocessor interconnects and mutlichassis switching fabric
 
 
 How It Works
-------------
+============
 
 Generally speaking, the design is essentially an omega clos hypercube network with 
 linear network coding and flit wormhole switching.
