@@ -15,12 +15,13 @@ The underlying concept is ultimately extremely simple.
 Concept
 -------
 
-Fennec is a fancy name for eliminating all the bullcrap and connecting your device's system bus to my 
-device's system bus.
+Fennec aims to virtualize and converge all of communications, connecting your device's system bus 
+to that of those you care about.
 
-In other words, Fennec is the ultimate convergance of the general design principles used in 
-the Juniper QFabric, Cray Gemini Interconnect, and even more experimental and innovative forms of
-extremely high-performance crossbar optical fabric switching generally used in multiprocessor interconnects
+In other words, Fennec is similar to a combination of Juniper QFabric, Cray Gemini Interconnect, 
+and even more experimental and innovative forms of
+extremely high-performance crossbar optical fabric switching 
+generally used in multiprocessor interconnects
 and extremely high-bandwidth mutlichassis switching fabrics.
 
 Generally speaking, the design is essentially an omega clos hypercube network with 
@@ -42,11 +43,11 @@ Hyperboria, PSYCed, SwiftIM, OpenSourceSkype, BATMAN, B4RN, Asterisk, FON, Tomat
 it seeks to cherrypick the best concepts and ideas of each, and synthesize a new and cohesive whole.
 
 By taking the most bold, visionary, and aggressive features and improvements of each model and concept, 
-Fennec becomes a very strong, bold, forceful, and dominant new project that seeks to pin the Web down
+Fennec becomes a very ambitous, audacious and dominant new project that seeks to pin the Web down
 and take it without mercy.
 
-Interim Implementation for Proof-of-Concept
-===========================================
+Proof-of-Concept
+================
 
 In the interim for proof-of-concept and initial experimentation, we will use pre-existing software
 to emulate the abstract model.
@@ -59,32 +60,39 @@ The basic interim model is as follows:
 Primary Anonymity Layer
 -----------------------
 
-I2P
+I2P Invisible Internet Project
+http://www.i2p2.de/intro.html
 
 Compatibility Layer 1
 ---------------------
 
 GarliCat (OnionCat for I2P)
+https://www.cypherpunk.at/onioncat/wiki/GarliCat
 
 Primary Overlay
 ---------------
 
-CJDNS
+CJDNS Encrypted Networking Engine
+https://github.com/cjdelisle/cjdns/blob/master/rfcs/Whitepaper.md
 
 Secondary Anonymity Layer
 -------------------------
 
 Tor (with alternative directory and bridge authorities within cjdns)
+https://blog.torproject.org/blog/ipv6-future-i-hear
+https://www.torproject.org/docs/tor-manual-dev.html.en
 
 Compatibility Layer 2
 ---------------------
 
 QuickTun (with nonce nacl crypto; no kill like overkill)
+http://wiki.ucis.nl/QuickTun
 
 Secondary Overlay
 -----------------
 
 PSYC1 (forked old federated form of PSYC, repurposed to avoid gnuNET)
+http://about.psyc.eu/PSYC
 
 FoxCoin (alternative blockchain protected with Tor over CJDNS over I2P)
 
