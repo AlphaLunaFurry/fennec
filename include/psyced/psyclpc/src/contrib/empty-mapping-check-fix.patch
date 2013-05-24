@@ -1,0 +1,39 @@
+# http://mantis.bearnip.com/view.php?id=475
+
+Consider this code:
+
+  mixed x = m_allocate(100,2); x += ([2:3;4;5]);
+  mixed y = m_allocate(100,2); y = y + ([2:3;4;5]);
+
+The first line results in an error, saying the mapping width doesn't match. The second line results in y containing mapping of width 3. As x is empty, the first line should work as well.
+
+add_to_mapping() in mapping.c tests for empty mappings with
+    0 == m2->num_entries && NULL == m2->hash
+For m_allocate-d mappings, hash is empty but not 0.
+
+Why is the hash tested at all? 3.2 doesn't have that check.
+
+Attachment: patch to remove the NULL == m[1,2]->hash tests
+
+Index: mapping.c
+===================================================================
+--- mapping.c	(revision 2306)
++++ mapping.c	(working copy)
+@@ -3352,7 +3352,7 @@
+         /* If one of the two mappings is empty, we can adjust its width
+          * after getting rid of all pending data blocks.
+          */
+-        if (0 == m2->num_entries && NULL == m2->hash)
++        if (0 == m2->num_entries)
+         {
+             if (m2->cond != NULL)
+             {
+@@ -3363,7 +3363,7 @@
+             }
+             m2->num_values = m1->num_values;
+         }
+-        else if (0 == m1->num_entries && NULL == m1->hash)
++        else if (0 == m1->num_entries)
+         {
+             if (m1->cond != NULL)
+             {

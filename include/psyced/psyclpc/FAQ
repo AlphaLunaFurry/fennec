@@ -1,0 +1,22 @@
+===============================================================================
+Why our own derivate of the LDMud?
+
+* Expecting our psyced admins to find a suitable version made installation
+  unnecessarily complicated, and every now and then an ldmud release does
+  indeed not work for psyced.
+* We love the work mateese has been doing and still does, and we will
+  surely continue to share all gotchas and improvements so that both
+  variants of LDMud strive. Only we catch ourselves needing to have a
+  shorter change inclusion and release cycle. We asked mateese before
+  taking this step.
+* For that reason we had been making the psyced install procedure too
+  complicated, as it was always trying to patch some things in the ldmud
+  source, even when it didn't know which ldmud version it was working on.
+* Now to have psyced and its driver bundled in a pair which is safely known
+  to be happily working together is a simple yet great step forward.
+* This makes the whole psyced installation base more homogeneous. We don't
+  have to deal with deployed instances that do not properly do this or that.
+
+It should still be possible to run psyced with an off-the-mill ldmud and
+counterwise run a MUD installation with a psyclpc.
+===============================================================================

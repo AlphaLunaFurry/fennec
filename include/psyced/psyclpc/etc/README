@@ -1,0 +1,14 @@
+Miscellaneous files for the driver:
+
+  lpc-mode.el : LPC mode for EMACS, by Vivek Dasmohapatra <vivek@etla.org>
+  lpc.xml     : LPC syntax highlighting for Kate, by <Andreas.Klauer@epost.de>
+  lpc.vim     : LPC syntax highlighting for vim, maintained by Shizhu
+                  Pan <poet@mudbuilder.net>
+
+  savefile-parse.pl: A perl snippet which reads a LPMud savefile and
+                 transforms it into a Perl datastructure.
+
+The following scripts are just working examples - use them to roll your own:
+
+  memusage    : A script to analyze OBJ_DUMP.
+

@@ -1,0 +1,27 @@
+# http://mantis.bearnip.com/view.php?id=500
+#
+diff -ur ldmud-3.3.714/src/simulate.c ldmud-3.3.714-zesstra/src/simulate.c
+--- ldmud-3.3.714/src/simulate.c	2006-07-10 04:42:06.000000000 +0200
++++ ldmud-3.3.714-zesstra/src/simulate.c	2007-02-25 16:15:09.000000000 +0100
+@@ -1762,6 +1762,13 @@
+     if ('/' == lname[0])
+         fatal("Improper filename '%s' passed to load_object()\n", lname);
+ #endif
++    
++    // empty lnames may lead to a driver crash in enter_object_hash() if there 
++    // exists a file '.c' in the root of the mudlib.
++    if ((name_length=strlen(lname)) <= 1) {
++         load_object_error("Illegal file to load (empty filename)", lname, chain);
++         /* NOTREACHED */
++    }
+ 
+     /* It could be that the passed filename is one of an already loaded
+      * object. In that case, simply return that object.
+@@ -1776,7 +1783,6 @@
+      * the second because lname might be a buffer which is deleted
+      * during the compilation process.
+      */
+-    name_length = strlen(lname);
+     name = alloca(name_length+2);
+     fname = alloca(name_length+4);
+     if (!name || !fname)

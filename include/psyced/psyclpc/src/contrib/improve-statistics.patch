@@ -1,0 +1,81 @@
+# see also http://mantis.bearnip.com/view.php?id=476
+
+This patch adds calls to mark_start_evaluation() and mark_end_evaluation() for external master applies, calls to logon() and erq_send callbacks. It also adds a mark_end_evaluation() in the global error handler
+
+there are some other places which may or may not be toplevel evaluations:
+telnet negotiation hook - I don't know which of the calls are toplevel and which might be triggered while executing code (say, by input_to)
+noecho hook - same.
+erq stop hook - called by attach_erq_demon, is it also called at the top level?
+tls callbacks - didn't look further
+
+Index: object.c
+===================================================================
+--- object.c	(revision 2306)
++++ object.c	(working copy)
+@@ -921,12 +921,14 @@
+     object_t *save = current_object;
+ 
+     current_object = ob;
++    mark_start_evaluation();
+     ret = apply(STR_LOGON, ob, 0);
+     if (ret == 0)
+     {
+         errorf("Could not find %s() on the player %s\n", get_txt(STR_LOGON), get_txt(ob->name));
+         /* NOTREACHED */
+     }
++    mark_end_evaluation();
+     current_object = save;
+ } /* logon_object() */
+ 
+Index: comm.c
+===================================================================
+--- comm.c	(revision 2306)
++++ comm.c	(working copy)
+@@ -2860,8 +2860,10 @@
+                                 assigned_eval_cost = eval_cost = user->call_out_cost;
+                             }
+                             RESET_LIMITS;
++                            mark_start_evaluation();
+                             secure_callback_lambda(erqp, num_arg);
+                             user->call_out_cost = eval_cost;
++                            mark_end_evaluation();
+                             if (!keep_handle || (ob->flags & O_DESTRUCTED))
+                             {
+                                 free_svalue(erqp);
+Index: backend.c
+===================================================================
+--- backend.c	(revision 2306)
++++ backend.c	(working copy)
+@@ -449,6 +449,7 @@
+     /*
+      * We come here after errors, and have to clear some global variables.
+      */
++    mark_end_evaluation();
+     clear_state();
+     flush_all_player_mess();
+     prevent_object_cleanup = MY_FALSE;
+Index: interpret.c
+===================================================================
+--- interpret.c	(revision 2306)
++++ interpret.c	(working copy)
+@@ -17334,6 +17334,8 @@
+     save_csp = csp;
+     if (setjmp(error_recovery_info.con.text))
+     {
++        if (external)
++            mark_end_evaluation();
+         secure_apply_error(save_sp - num_arg, save_csp, external);
+         printf("%s Error in master_ob->%s()\n", time_stamp(), get_txt(fun));
+         debug_message("%s Error in master_ob->%s()\n", time_stamp(), get_txt(fun));
+@@ -17341,7 +17343,11 @@
+     }
+     else
+     {
++        if (external)
++            mark_start_evaluation();
+         result = sapply_int(fun, master_ob, num_arg, MY_TRUE, MY_FALSE);
++        if (external)
++            mark_end_evaluation();
+     }
+ 
+     /* Free the reserve if we used it */

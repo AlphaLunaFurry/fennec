@@ -1,0 +1,139 @@
+2010-06-21 (nedko/lynX) (4.0.14)
+  - removed traditional configure script from distribution 
+    new ./configure uses autotools to generate the configure script
+    then runs it with the psyced defaults
+
+2010-05-23 (lynX) (4.0.13)
+  - added fix for the iconv detection to configure script by spigot. thx!!
+
+2009-05-22 (lynX) (4.0.12)
+  + adopted changes in LDMUD 3.3.718:
+    - many many many fixes
+    + support for iksemel xml parser library
+    + state of the art random generator
+
+2008-07-27 (lynX) (4.0.10)
+  + added ERR_TLS_NOT_DETECTED code to sys/tls.h
+  + added suitable message to tls_error()
+  - configure.in: use sysmalloc by default
+
+2008-07-20 (lynX) (4.0.9)
+  - TLS autodetect now comes with timer
+  - safer way to shutdown SSL
+
+2008-05-28 (fippo/lynX) (4.0.8)
+  + new efuns:
+	string strftime(string, int default: F_TIME);
+	int    strptime(string, string);
+  + temporary efun tls_want_peer_certificate()
+  - SSL_set_shutdown() hopefully fixes openssl crasher on SSL_ERROR_SYSCALL
+
+2008-01-21 (fippo) (4.0.7)
+  + new enable_binary() efun to allow for binary networking (EXPERIMENTAL)
+  + new ieee754_to_string(float) and string_to_ieee754(string)
+    efuns to support this specific flavour of floating point notation
+
+2008-01-12 (fippo)
+  - fixed erq SRV support on 64 bit architectures
+
+2008-01-02 (lynX)
+  - repaired builtin pcre utf8 support
+  + use builtin pcre by default until utf8 support becomes more popular
+    in distributions (can be an unnecessary complication otherwise)
+
+2007-10-07 (Lars)
+  - foreach(int i: <num>) recognizes if <num> is negative
+    and throws an error. (Bug #503, from ldmud)
+  - (configure) When testing for libiconv, reference a real libiconv method.
+    This catches situations where libiconv exists, but is of the
+    wrong architecture.
+
+2007-08-29 (lynX) (4.0.6)
+  + #define USE_RESTORED_OBJECTS in object.c teaches
+    save_object() to store object names using a `name` syntax and
+    restore_object() to put it back in circulation in form of strings.
+  + enable_use_restored_objects activates this (but we don't use it yet)
+  + erq now terminates peacefully whenever the driver shuts down
+  - cleaned up a lot of debug output behaviour and put it into
+    #ifdef VERBOSE and #ifdef USE_LDMUD_COMPATIBILITY
+  + enable_use_debug_log=no sends all debug output to stdout
+  - enable_backtrace_always and enable_ldmud_compatibility
+    replaced by enable_use_ldmud_compatibility
+  - replaced enable_use_paranoid_refs by enable_use_paranoia which now
+    also ifdefs the "strict checks" code
+  + added enable_use_experimental
+  + EXPERIMENTAL: send TLSv1 handshake when acting as TLS client
+
+2007-08-19 (lynX) (4.0.5)
+  + enable_use_builtin_editor=no disables the built-in text editor 'ed'.
+  + enable_use_inventories=no removes all MUD-related functionality
+    concerning inventories and environments.
+  + enable_use_snooping=no disables all socket snooping code.
+  + enable_use_actions=no disables all MUD-style command parser facilities.
+  + enable_use_socket_limits=no disables limits on amount of entered lines
+	per second including get/set_max_commands() efuns.
+  + enable_use_shadowing=no disables various forms of shadowing.
+  + enable_use_swap=no disables the ability to swap program bytecode to disk.
+  + enable_use_paranoid_refs=no disables paranoid runtime checks, you only
+	need this if you are making dangerous changes to the driver code
+	or looking for mysterious crashes.
+  + enable_ldmud_compatibility=no mostly affects unnecessary debug messages
+	which will otherwise appear for maximum compatibility.
+  + optimized outconn management with num_pending_outconns & extra_jobs_to_do
+
+2007-08-16 (lynX) (4.0.4)
+  + added detection of #include <arpa/nameser_compat.h> which seems to
+	determine the availability of DNS SRV extensions
+  - erq will be compiled without SRV instead of failing to compile
+  + __NO_SRV__ is added to the predefines in lex.c if SRV is unavailable
+  + enable_backtrace_always=yes stops the stupid behaviour of hiding away
+    backtraces in the debug log (the debug log should only be necessary
+    for driver developers, not lpc coders). It doesn't have to be like php,
+    where the end user sees the full backtrace, but at least the admin should
+    be considered sufficiently competent.  :)
+  + new RE_UTF8 flag mirrors the PCRE_UTF8 flag and allows operating on
+    unicode character ranges using regexps.
+
+2007-07-06 (lynX) (4.0.3)
+  + added zippo's 64 bit patches. apparently do not break 32 bit architectures.
+	thx to Casey Zacek; Zippo @ EotL; mud.eotl.org 2010
+
+2007-05-07 (lynX) (4.0.2)
+  + moved program name ('psyclpc' formerly 'ldmud') into configure.in
+
+2007-05-04 (lynX) (4.0.2)
+  - fixed a compilation problem on Solaris derivates
+  + added authlocal
+  + added --with_max_net_connects, --with-size_socket_buffer
+    and forced settings when running ./configure without args
+  - applied http://mantis.bearnip.com/view.php?id=472 to fix zero byte
+    output in tell_object(), tell_room() and say()
+  + fixed multihomed connect to improve dynamic dns support
+
+2007-05-03 (fippo) (4.0.1)
+  - removed TLS CRL implementation as it isn't being used currently
+    and crashes on some systems
+
+2007-04-17 (lynX) (4.0.0)
+  + using new major version number to avoid conflicts with LDMUD.
+
+2007-04-08 (lynX)
+  - removed doc, mud, src/util/xerq, HISTORY, src/settings.
+  - crippled CHANGELOG.
+  - updated COPYRIGHT and README.
+  + created new CVS and introduced the pragmatic name 'psyclpc'
+  - some values adjusted to heavy networking use
+
+2007-02-16 (fippo)
+  - TLS fixed
+  + support for TLS CRLs
+  + JSON (javascript object notation) efuns
+  - set_combine_charset allows newline and null to be combined
+  - some minor patches
+  + pkg-expat
+
+2006-07-09 (Lars Duening) (3.3.714)
+  - Created snapshot.
+
+For prior CHANGELOG and HISTORY see the LDMud distribution.
+

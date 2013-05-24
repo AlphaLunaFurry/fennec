@@ -1,0 +1,26 @@
+The files in this directory are:
+
+  HELP        : basics, serves also as source for the man file.
+  README      : this file.
+  COPYRIGHT   : the copyright of the driver.
+  CREDITS     : the list of contributors.
+  HISTORY (removed)
+  CHANGELOG   : the last changes in minute detail.
+  COPYING.LIB : the GNU Library Public License.
+  INSTALL     : installation hints and notes.
+  FAQ         : unfrequently answered questions.
+  psyclpc.1   : manual file.
+
+  doc/    (removed) the documentation is available on the web or
+		    in the LDMud distribution.
+  src/    : the driver source
+  pkg/    : additional packages (unsupported and supported) for the driver.
+  mudlib/ : various LPC (example) files.
+  mudlib/sys/:
+            standard include files to copy into your mudlib. Some of these are
+            also used by the src/ files. 
+  mud/    (removed) the lp-245 mudlib, and support files for other mudlibs.
+
+Nice! Somebody made a doxygen of ldmud and posted it on
+http://lpmuds.net/ldmud/dox/dir_2cb66bf95229e25b825da12cd79535c5.html
+

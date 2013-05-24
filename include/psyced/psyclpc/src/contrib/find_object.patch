@@ -1,0 +1,80 @@
+# http://mantis.bearnip.com/view.php?id=500
+#
+diff -ur ldmud-3.3.714/src/mstrings.c ldmud-3.3.714-zesstra/src/mstrings.c
+--- ldmud-3.3.714/src/mstrings.c	2006-07-10 04:43:25.000000000 +0200
++++ ldmud-3.3.714-zesstra/src/mstrings.c	2007-02-25 15:56:17.000000000 +0100
+@@ -179,22 +179,16 @@
+ #endif /* EXT_STRING_STATS */
+ 
+ /*-------------------------------------------------------------------------*/
+-static INLINE whash_t
++/*
++whash_t
+ hash_string (const char * const s, size_t size)
+-
+-/* Compute the hash for string <s> of length <size> and return it.
++ * Compute the hash for string <s> of length <size> and return it.
+  * The result will always be non-zero.
++ * NOTE: The definition of the function is now in mstrings.h because it is
++ * also used in otable.c and the definition needs to be in every compilation
++ * unit which uses it.
+  */
+ 
+-{
+-    whash_t hash;
+-
+-    hash = whashmem(s, size, MSTRING_HASH_LENGTH);
+-    if (!hash)
+-        hash = 1 << (sizeof (hash) * CHAR_BIT - 1);
+-    return hash;
+-} /* hash_string() */
+-
+ /*-------------------------------------------------------------------------*/
+ static INLINE whash_t
+ get_hash (string_t * pStr)
+diff -ur ldmud-3.3.714/src/mstrings.h ldmud-3.3.714-zesstra/src/mstrings.h
+--- ldmud-3.3.714/src/mstrings.h	2006-07-10 04:43:26.000000000 +0200
++++ ldmud-3.3.714-zesstra/src/mstrings.h	2007-02-25 15:52:32.000000000 +0100
+@@ -117,6 +117,26 @@
+ 
+ /* --- Inline functions and macros --- */
+ 
++/*-------------------------------------------------------------------------*/
++static INLINE whash_t
++hash_string (const char * const s, size_t size)
++/* Compute the hash for string <s> of length <size> and return it.
++ * The result will always be non-zero.
++ * Needs to be in mstrings.h to be inlined because otable.c also uses it.
++ * NOTE: it is static so the compiler generates inline functions only visible
++ * in the compilation unit. Thus the linker does not bail out in case the 
++ * compiler does not inline it and it is portable on systems not supporting inline.
++ */
++{
++    whash_t hash;
++
++    hash = whashmem(s, size, MSTRING_HASH_LENGTH);
++    if (!hash)
++        hash = 1 << (sizeof (hash) * CHAR_BIT - 1);
++    return hash;
++} /* hash_string() */
++/*-------------------------------------------------------------------------*/
++
+ #define mstr_mem_size(s) \
+     (sizeof(string_t) + (s)->size)
+ 
+diff -ur ldmud-3.3.714/src/otable.c ldmud-3.3.714-zesstra/src/otable.c
+--- ldmud-3.3.714/src/otable.c	2006-07-10 04:42:56.000000000 +0200
++++ ldmud-3.3.714-zesstra/src/otable.c	2007-02-25 16:12:12.000000000 +0100
+@@ -51,10 +51,10 @@
+ 
+ #if !( (OTABLE_SIZE) & (OTABLE_SIZE)-1 )
+ #    define ObjHash(s)        (mstr_get_hash(s) & ((OTABLE_SIZE)-1) )
+-#    define ObjHashStr(s,len) (whashmem(s, len, MSTRING_HASH_LENGTH) & ((OTABLE_SIZE)-1) )
++#    define ObjHashStr(s,len) (hash_string(s, len) & ((OTABLE_SIZE)-1) )
+ #else
+ #    define ObjHash(s)        (mstr_get_hash(s) % OTABLE_SIZE)
+-#    define ObjHashStr(s,len) (whashmem(s, len, MSTRING_HASH_LENGTH) % OTABLE_SIZE)
++#    define ObjHashStr(s,len) (hash_string(s, len) % OTABLE_SIZE)
+ #endif
+ /* Hash the string <s> and compute the appropriate table index
+  */

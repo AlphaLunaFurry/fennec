@@ -1,0 +1,271 @@
+Installing the psyced
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We're very proud to see you are about to install a psyced!
+
+(Windows System)
+    You received this in form of an executable. By executing it you
+    will be prompted some questions, then sent to a web-based
+    configuration interface. So essentially you don't need any help here.
+    Please move directly on to the FIRSTSTEPS document once you have
+    done the installation.
+        [1]http://www.psyced.org/FIRSTSTEPS
+
+(Gentoo Linux System)
+    Download the ebuilds which are available from [2]http://www.psyced.org
+    and follow the instructions inside. Once psyced is emerged you can go
+    directly to chapter 3.
+
+(Linux or Unix System)
+    In a nutshell, all you have to do is execute './install.sh' and go from
+    there. It will tell you to download an LPC driver from
+        [3]http://lpc.psyc.eu
+    then compile and configure it with you interactively. So you don't need
+    to know anything more now, but if you want more information, read on.
+
+(Questions and Answers)
+    Don't be afraid to come into our developer chatroom and interact with
+    us as you go along. We have designed the installation to be totally
+    simple and beginner friendly. If you're not experiencing it as such,
+    something has gone wrong. Don't try to figure it out alone, talk to us.
+    And.. please be patient with our slow response times.
+
+        psyc://psyced.org/@welcome
+        [4]irc://psyced.org/#welcome
+        [5]http://psyced.org:33333/PSYC/
+        [6]telnet psyced.org
+
+
+0. System Requirements
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   You can probably skip this if you think you have a sanely configured
+   GNU/POSIX system.
+
+   The following requirements exist for building psyced and psyclpc:
+
+   o  Disk Space:
+
+      Make sure you have approximately 7 MB of temporary free disk space
+      available.  After installation psyced occupies approximately 3 MB of
+      disk space (the actual required disk space depends on the amount of
+      users, logs etc).
+
+   o  ANSI-C Compiler:
+
+      Make sure you have an ANSI-C compiler installed. The GNU C compiler
+      (GCC) from the Free Software Foundation (FSF) is recommended.
+      You can find the homepage of GNU at [7]http://www.gnu.org/. GCC
+      binaries for Solaris can be loaded from [8]http://www.sunfreeware.com/.
+
+   o  POSIX YACC compliant grammar compiler
+
+      You probably have either bison or yacc installed, otherwise do the
+      appropriate emerge or whatever software installation.
+
+   o  Useful C libraries
+
+      OpenSSL, pcre, zlib, idn > 0.5.5, nsl, mlib.
+
+      libidn is integral part of libc in newer systems.
+
+   o  Some standard or popular Unix applications
+
+      bzip2, make, egrep, touch, uname, sh, sed, fileutils etc.
+
+   o  PERL 5 Interpreter
+
+      The distribution includes some perl scripts that may or may not
+      be useful. 'psyconf' in particular is needed to get the configuration
+      in place, it is however not needed at runtime.
+
+
+1. How to compile an LPC driver manually
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   You can skip this part if you want to let the installation mechanism
+   do it for you. To be honest, the danger of us not giving you enough
+   information for you to get it done right is lessened if you let the
+   process do it.
+
+   [9]http://lpc.psyc.eu will direct you to the current download areas for
+   the PSYC-enabled LPC driver, psyclpc. It uses
+   a standard auto-configuration system which on most platforms does all the
+   work for you (see below for exceptions). That's how install.sh can do it
+   just like that.
+
+   To prepare the compilation, enter the src directory of the LPC driver and
+   execute './configure' (which will run the 'settings/psyced' script).
+   The default target directory is '/opt/psyced' or a subdirectory of your
+   home directory if you are installing in user mode. Please edit the
+   'settings/psyced' script if you need a different path. You may want to
+   tweak some compilation configuration settings contained in that file,
+   but there isn't a need to.
+
+
+   After configuration is finished, you may want to modify the Makefile
+   to fine tune those parameters which are not covered by the configuration.
+   (like maybe change 'INSTALL=./install.sh -c' to 'INSTALL=./install.sh')
+   But there is generally no need to do anything.
+
+   The compilation is done using make. Following targets are implemented:
+
+     <none>:        compile the driver
+     install:       compile the driver and install it in ${bindir}
+     utils:         compile the utilities, especially the ERQ daemon
+     install-utils: compile and install the utilities in ${bindir}
+
+   You will need an 'psyclpc' and an 'erq' binary for psyced to work.
+   For more details feel free to read the driver's INSTALL file.
+
+
+2. Okay, let's install it!
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   To install psyced, execute the './install.sh' script from within
+   the distribution directory. On some systems you may have to use a
+   different shell, like 'ksh install.sh' or 'bash install.sh'.
+
+   You will be asked some configuration questions. When done, it will
+   create several files for you and transfer the content of the psyced
+   distribution to the target directory you specified interactively.
+
+   The installation script expects you to provide a psyclpc source tar
+   in its directory. It will unpack and compile this for you. psyced
+   itself comes with a lot of ".c" files, too - but those aren't C
+   language files. These are LPC files, which for historical reasons
+   have the same file name ending and cannot be easily renamed.
+   So it is normal and correct that these will be copied over and
+   compiled at runtime like with most virtual machine languages.
+   It gets funnier. LPC data files end in ".o"
+
+   Depending on your userid (root or other) you will be given
+   /opt/psyced or ~/psyced as defaults for installation. We
+   continue this documentation assuming you picked the root defaults.
+
+
+3. Configuring psyced
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Either install.sh has generated a psyced.ini for you, or your
+    software management tools have produced one for you. It usually
+    resides in /etc/psyc, but you may have chosen to put it elsewhere.
+
+    Have a look into that file to ensure it has all the settings you
+    want. There are some further configuration options in there that
+    install.sh hasn't asked you about.
+
+    Every time you change that file you need to feed it to the
+    psyconf command which will generate several control files for
+    your psyced installation. Editing those files by hand is not
+    recommended as a new call to 'psyconf' will simply delete any
+    manual changes.
+
+
+4. Running psyced
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   If you installed as root, do not run the following commands as root!
+   Switch to the userid you defined for running psyced, or several files
+   will be created with wrong rights and not be accessible later on.
+
+   Switch user:
+        su psyc
+
+   Start psyced:
+        /opt/psyced/bin/psyced
+
+   Test it:
+        telnet localhost 2323
+    or
+        irc <nick> localhost
+
+
+5. Troubleshooting
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Should you attempt to run psyced as root, you may later experience problems
+   running it under the uid you actually were planning to use, because files
+   have been generated that belong to root. 'chown -R ' repairs that.
+
+ * Should erq refuse to compile, your system might be providing a less recent
+   resolver library. Add '-lresolv' manually to LIBS in the Makefile and
+   re-issue 'make' (theroue had this effect on Slackware).
+
+ * We recently had a bug in the install.sh by which the line in the 'mypsyced'
+   file which is in charge of calling ./configure was broken in two and thus
+   only one half of the flags were used. Should you find #undef TLS in your
+   config.h it is quite likely that 'mypsyced' is literally broken in two.
+
+ * The LPC driver will have TLS in, even if you told install.sh not to use it.
+   This allows you to change your mind later on and shouldn't be a problem,
+   but if it is, edit src/config.h to #undef USE_TLS and redo the compilation.
+
+ * Recent variants of psyclpc and LDMUD complain when you compile TLS in, then
+   don't have a certificate to go with it. You can safely ignore it. This and
+   related messages are harmless and need no treatment:
+     'SSL error:02001002:system library:fopen:No such file or directory.'
+
+ * There are however recent problems with gnutls. psyclpc and LDMUD are being
+   used with openssl in most cases, so the gnutls interface may not be up to
+   date. If you encounter problems, try installing openssl.
+
+ * Should it look for the lpc driver in /usr/sbin although you have it
+   elsewhere, then psyconf got the architecture guessing wrong. Come
+   into the chat and show us the first lines of psyconf output, so
+   we can fix that.
+
+ * Sometimes installation problems can be fixed by running a cvs update
+   on install.sh and bin/psyconf, if they are new and just recently corrected.
+   If your install.sh doesn't appear updateable, look into the installation
+   directory - there is another copy. Run 'cvs update install.sh' then copy
+   it back to where you need it.
+
+ * Should you see the message "Failed to load master object 'secure/master'!"
+   when starting the driver, then you compiled it without the psyced.settings
+   which the installation process should have used automatically. You can
+   find them in the config directory.
+
+ * "tls_init_connection(): TLS layer hasn't been initialized." usually
+   happens when you are connecting a TLS port with no TLS on the client
+   side. But it can also mean that psyclpc didn't successfully read its
+   key and certificate from the start. Are the permissions correct?
+   What is psyclpc telling you right after starting up? Is it able to
+   read your key and certificate file?
+
+ * If you still encounter problems, please read (Questions and Answers)
+   at the beginning of this document. And, as always, come to the developer
+   chatroom!
+
+
+6. Success!
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    You can now move on to the FIRSTSTEPS document.
+    Here's the online version, but you have one on your harddisk too.
+        [10]http://www.psyced.org/FIRSTSTEPS
+
+
+
+
+
+
+    This document was written by [11]psyc://psyced.org/~lynX
+    and Marek Schneider ([12]psyc://ve.symlynX.com/~real).
+
+   --
+   http://www.psyced.org/INSTALL.html
+   last change by psyc on lo at 2011-06-15 15:25:34 MEST
+
+References
+
+   1. http://www.psyced.org/FIRSTSTEPS
+   2. http://www.psyced.org/
+   3. http://lpc.psyc.eu/
+   4. irc://psyced.org/#welcome
+   5. http://psyced.org:33333/PSYC/
+   6. telnet://psyced.org/
+   7. http://www.gnu.org/
+   8. http://www.sunfreeware.com/
+   9. http://lpc.psyc.eu/
+  10. http://www.psyced.org/FIRSTSTEPS
+  11. irc://psyced.org/lynX,isNick
+  12. irc://ve.symlynX.com/real,isNick

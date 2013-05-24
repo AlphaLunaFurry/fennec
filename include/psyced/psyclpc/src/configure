@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# first generate the actual configure script
+if test ! -f "configure.do" ; then
+	(cd autoconf;make)
+fi
+
+# then run it with psyced defaults
+settings/psyced

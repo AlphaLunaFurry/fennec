@@ -1,0 +1,106 @@
+FROM LDMUD
+- ldmud has made quite some progress, although not exactly in the areas
+  that we are active in. syncing with ldmud is a good idea.
+
+BUGS
+- configure should warn more vehemently when libidn is missing
+- libpsyc isnt recognized even if properly installed
+- x86_64 seems to require -ldl explicitly at the end of libs
+- sometimes -lpsyc and -lpcre are added twice to $LIBS !?
+- should autoconf to sysmalloc also for osol (OpenSolaris)
+- #define USE_EXPAT und JSON werden trotzdem gesetzt in config.h
+  auch wenn configure keine libs gefunden hat (egal, wir verwenden beide nicht)
+- Because of some funny bug the driver will probably not bind properly
+  to _basic_host_IP as it also needs _basic_host_name and _basic_host_domain
+  to be provided. Hopefully this shortcoming will soon be history.
+- what's the use of a traceback on stdout if the actual error goes to stderr?
+    Error loading place: *Error in loading object: 'place/testotest'.
+    Warning: place "/place/testotest" did not return ME on load()
+    2009.04.21 12:35:19 ERROR caught. Backtrace:
+    '          parse' in '      net/irc/user.c' (' net/irc/user#User') line 32
+    [...]
+    '          CATCH' in                        ('drivers/ldmud/library/library')
+
+WINDOWS SUPPORT
++ with the new __NO_SRV__ detection psyclpc compiles under cygwin but it
+  doesn't provide SRV which makes it a suboptimal XMPP router.. just in
+  case you want that.
+      fippo suggests to put http://delta.affinix.com/jdns/ into psyclpc
+  http://www.chiark.greenend.org.uk/~ian/adns/ requires a locally running
+  nameserver.. and i don't think it even runs on cygwin.. other ideas?
+
+COMPLAINTS
+-* QA Notice: Package has poor programming practices which may compile
+ *            fine but exhibit random runtime failures.
+ * interpret.c:7224: warning: dereferencing type-punned pointer will break strict-aliasing rules
+
+MISC IDEAS
+- make more MUD features optional: more d_flag stuff?
+  ? USE_RESETS time_of_ref USE_CLEANUP load_id USE_WIZLIST USE_EXPAT USE_EVALUATION_COST
+  - disabling with_input_escape does not disable the input_escape handling source code
++ teach ldmud to exec() so that, together with --args, we can run it as a
+  regular daemon without kludgy shellscripts. zesstra suggests we could have
+  a C wrapper process instead of a shell script. and what about init, can't
+  we monitor and restart the driver from init?
+	(http://ldmud.eu/mantis/view.php?id=55)
+  + provide a query_shutdown_progress() efun to inform about progress
+    and the intention to either shutdown or restart. maybe even a reason?
++ optimize f_lower_case by adding an 'already lowercase' flag to the
+  string data structure
++ ldap package erproben und fertigmachen
++ put errno() back in
++ psyctext() in C ... see psyced/CHANGESTODO for details
+? bugless says there is an ioctl() to obtain a descriptor's owner uid
+  thus avoid the authlocal /proc hack
+? have a seperate package for the LPC documentation and update it a bit
+  since ldmud?
++ fip thinks we should have a new operator with arguments rather than 
+  clone_object and subsequent -> calls. pike doesn't even have the "new"
+  because unlike C++ and LPC it forbids static use of classes (aka "blueprints")
++ fippo suggests to look into http://www.hpl.hp.com/personal/Hans_Boehm/gc/leak.html
++ DMSG_FLUSH for incremental debug messages  :)
+- for pike compatibility allow string[-1] just like string[<1]
++ would be nice if sprintf %O would indent data structure according to depth.
+  currently outputting a parsed xml node is quite confusing
+
+ENCRYPTION (see http://about.psyc.eu/Talk:Encryption)
+? link libpurple to this for protocol supports and OTR hahahahaha
+? or link libotr only?
+? or is OTR too expensive anyway and we should try SS-TLS?
+
+USE_RESTORED_OBJECTS
+ + object names need to be able to be identical to uniforms
+   then it doesn't matter if they came back from persistence as strings
+   as sendmsg() can handle both objects and uniforms - we just need to
+   deal with mappings where both the object and the uniform could be the key..
+    (members & routes of places)
+
+NETWORKING
+- add_message("%s", "\n*** Text lost in transmission ***\n");
+  should be passed to master instead.
++ _length: <eL> somebody implement a new input_to(#'get_data, length).
+? replace ERQ with c-ares http://c-ares.haxx.se/ for async dns lookups
+? MAYBE the whole networking should be replaced by libevent!??
++ support epoll() / kqueue (or just libevent?)
+
+? allow port definition from lpc:master.c or even dynamic listen()
+  so we can add port config to the web configurator
+..egal, machen wir jetzt über psyconf
+
+CHARSET
+-?  keeping track of charset everywhere to avoid any unnecessary conversion
+    would lead to so much overhead, that occasional unnecessary conversion is
+    the cheaper option. that's why we should convert in the driver close to
+    the network operations:
+comm.c:3055:    if(ip->tls_inited)
+                    l = tls_read(ip, ip->text + ip->text_end, (size_t)l);
+                else if (!(ip->tls_want))
+                    l = socket_read(ip->socket, ip->text + ip->text_end, ...
++ since network read operations are much more efficient than input_to-lines
+  iconv charset conversions should happen right after socket/tls_read()
+  into a pre-buffer, then copy-converted into the interactive's buffer
++ outgoing transmissions need to find the same treatment, before
+  socket_write() and also before optional compression.
++ socket charset is stored in interactive_s and given by an efun
++ charset is compared to SYSTEM_CHARSET which is given by config.h/configure
+- http://ldmud.eu/mantis/view.php?id=117 ... try //TRANSLIT again?

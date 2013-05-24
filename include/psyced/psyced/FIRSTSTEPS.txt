@@ -1,0 +1,193 @@
+First Steps with your new psyced
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We're even more proud to see that now you have installed a psyced!
+
+Still if you're running into problems, feel free to come into our
+chatroom. If you're not good at english, you may try italian or
+french or spanish. The choice of languages available in our developer
+room is steadily growing. Did I mention german?
+
+        psyc://psyced.org/@welcome
+        [1]irc://psyced.org/welcome
+        [2]telnet psyced.org
+            /go welcome
+        [3]http://psyced.org:33333/PSYC/
+
+
+1. Make sure you have a valid hostname
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    This is an issue for psyced installers no matter which platform you
+    use. First you have to make sure that the IP number for your server
+    reverse resolves to a hostname, no matter which. PSYC servers out there
+    will want to ensure this hostname resolves forward to your IP address
+    again. It's a question of necessary aggravated paranoia.  :)
+
+    Luckily, if your ISP confronts you with dynamic IP address changes it
+    normally also provides hostnames for those IPs, as ugly as they may look.
+    If this is the case, you may still not have a static hostname which
+    stays the same while your IP number keeps changing. Making one up will
+    not help, PSYC servers out there will reject communication with you.
+
+    That's not what you want. So even if you're just trying this out, to
+    really be able to see what the PSYC internetworking gives you, install a
+    dynamic DNS solution and put its name into the psyced configuration. We're
+    not here to suggest any specific provider for dynamic DNS to you. Although
+    they offer free service, many of them are commercial. Just search for the
+    keywords "dynamic DNS" if you never heard of this. If you're an advanced
+    hacker you can even set up a CNAME alias from your own domain to your new
+    dynamic domain name, but you have to pay special attention to the TTL when
+    you do.
+
+
+2. Start using psyced
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    You may probably have gained some acquaintance with the technology
+    on a user level simply by using existing public PSYC servers.
+    Nonetheless you will however find enlightment in reading the
+    user manual with all its commands. Some graphic clients may be
+    mapping the commands into nice menues and buttons, but it sure
+    is a good idea to be aware of how they work on the server side.
+
+    If your web access is installed and by chance on port 44444
+    you can use [4]http://localhost:44444/ to see the
+    built-in webserver with its copy of the help pages. Otherwise
+    the public copy resides at [5]http://help.pages.de.
+
+    [6]http://psyced.org:33333/info/page?fmt=_help_operator&layout=PSYC
+    shows the list of operator commands available to you if you configured
+    yourself to be one. The same list should also be available on your
+    own psyced at [7]http://localhost:44444/en/help/operator.page.
+
+    One of the most popular actions once a psyced is in place is to
+    customize your first own PSYC chatroom. For the documentation of how
+    to go about that consult [8]http://about.psyc.eu/Create_place.
+
+
+3. Installing a webchat applet
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    The psyced comes with a simple and fast web applet which resides
+    in "world/static" in its binary form. The source code is in "utility".
+    In fact it should be ready to run right off the default website of
+    psyced. If you're into Java(TM), feel free to enhance it and please
+    share your improvements.  :-)
+
+
+4. PSYC Networking
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    psyced allows you to send messages to remote PSYC entities using
+    /m or /t psyc://whatever and to send presence announcements with
+    /notify psyc://whatever. You can enter remote rooms with
+    /go psyc://remote.host/@room and the other room commands.
+    See the manual for details.
+
+
+5. Keeping psyced up to date
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   The release you have downloaded is supposed to be stable and well-behaving.
+   A newer release from the website should have the same quality, only much
+   better.  ;)
+
+a) Update via Website
+
+   Go to http://www.psyced.org/ or http://www.psyc.eu/
+   and download the newest tarball.
+
+b) Update via anonymous git
+
+   psyced currently comes with a regular .git repository
+   so you can use git commands to manage your version.
+   If you're not familiar with git we have provided the
+   basics as part of the psyced script:
+
+   Please cd to your installation target directory
+      (/opt/psyced, $HOME/psyced, /ve or whatever you chose)
+   and execute bin/psyced -u.
+
+   Your version of psyced will be updated. If there are any incompatibilities
+   or a need for getting a new tarball, psyced -u will give you
+   detailed information.
+
+
+   Should you find yourself behind a firewall that doesn't let you use git
+   protoocol,
+   you can still help yourself by logging into an outside unix host using
+
+        ssh -L 9418:git.psyced.org:9418
+
+   Additionally you need to change the hostname to localhost in .git/config.
+
+   By subscribing to psyc://psyced.org/@PSYC you will receive realtime
+   notifications of patch submissions to the main git.
+
+
+6. Tuning some details about psyced
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   The following page documents some special settings of psyced.
+        [9]http://about.psyc.eu/psyced
+
+
+7. Where to go from here?
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Now that you have a psyced a lot of the things mentioned on about can
+   be a place to start for your own exploration and extension. Pick any
+   link for inspiration:
+        [10]http://about.psyc.eu/Category:Application
+        [11]http://about.psyc.eu/Category:Development
+        [12]http://about.psyc.eu/Software
+        [13]http://about.psyc.eu/Category:Solid
+
+
+8. Interaction with other programs
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   chkrootkit is a very simplistic tool trying to find rootkits on your
+   linux installation. Should you be running this, don't be surprised if
+   it will complain about *any* IRC server running on port 6667. There
+   are no attempts at all to figure out legitimacy. So ignore it, or use
+   a different port number for your IRC server port.
+
+
+8. Give feedback
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   So you're a successful new psycic! You even joined our chatroom, but
+   now you'd like to put your thoughts somewhere less volatile. Well, we
+   have this thing people call a wiki, because we like to reinvent things,
+   but not on all occasions. The wiki is a welcome place for your thoughts -
+   start out at http://about.psyc.eu, find the page that suits your topic,
+   register a username (damn! no PSYC login integration yet!), edit it
+   and throw in your thoughts. We like to prefix our thoughts with
+   :<~~~>. Try it out and you'll see why. It's chat
+   culture in our veins. Please use the "discussion" pages as the wiki has
+   grown so much, it needs seperation of information from discussion to be
+   useful.
+
+
+
+   --
+   http://www.psyced.org/FIRSTSTEPS.html
+   last change by psyc on lo at 2011-06-15 15:25:34 MEST
+
+References
+
+   1. irc://psyced.org/welcome
+   2. telnet://psyced.org/
+   3. http://psyced.org:33333/PSYC/
+   4. http://localhost:44444/
+   5. http://help.pages.de/
+   6. http://psyced.org:33333/info/page?fmt=_help_operator&layout=PSYC
+   7. http://localhost:44444/en/help/operator.page
+   8. http://about.psyc.eu/Create_place
+   9. http://about.psyc.eu/psyced
+  10. http://about.psyc.eu/Category:Application
+  11. http://about.psyc.eu/Category:Development
+  12. http://about.psyc.eu/Software
+  13. http://about.psyc.eu/Category:Solid

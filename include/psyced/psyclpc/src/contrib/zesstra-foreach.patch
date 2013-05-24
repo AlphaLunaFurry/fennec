@@ -1,0 +1,12 @@
+# http://mantis.bearnip.com/view.php?id=503
+--- ldmud-3.3.714.orig/src/interpret.c	2006-07-10 04:44:33.000000000 +0200
++++ ldmud-3.3.714/src/interpret.c	2007-04-29 23:55:34.000000000 +0200
+@@ -15165,6 +15165,8 @@
+         if (arg->type == T_NUMBER)
+         {
+             count = arg->u.number;
++            if (count<0 && !use_range)
++              ERRORF(("foreach() got %ld, expected a positive integer.\n",count));
+             vars_required = 1;
+         }
+         else if (arg->type == T_STRING)

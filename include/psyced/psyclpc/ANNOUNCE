@@ -1,0 +1,73 @@
+CODE RELEASE: [lpmud driver] psyclpc 4.0.6 - derivate of LDMud
+
+ladies & gentlemen,
+
+wanted to inform you in accordance with Lars we have started shipping
+our own LDMUD distribution as it was getting just too complicated to
+maintain all necessary patches in our installation procedure for the
+psyced server (multi-protocol chat/messaging server).
+
+wrapping up our own tars has simplified distributing psyced a lot.
+we also dared to change the name (1) to make it less confusing for
+our users that "ldmud" belongs to "psyced" and (2) not to have to
+fulfil the high expectations you would put into an LDMud product.  ;)
+
+psyclpc is a derivate of ldmud 3.3.714 (the current version in the
+ldmud repository since over a year) with the following changes:
+
+   1. The driver has been modularized in such a way that you can turn
+      each function, many of them typically needed for MUD use, on or
+      off. The optional modules are:
+
+          * actions (MUD command parser)
+          * built-in editor 'ed'
+          * inventories, environments and light
+          * paranoid reference checks
+          * shadowing
+          * socket snooping
+          * swapping 
+
+      Turning any of these off makes your driver lighter and faster,
+      which is quite nice. ;)
+
+   2. New optional packages have been added:
+
+          * expat XML parser
+          * DNS SRV resolution
+          * JSON parser
+          * automatic localhost telnet authentication via /proc. 
+
+   3. TLS support has been improved a lot.
+
+   4. Minor fixes concerning 64 bit compilation, Solaris compilation,
+      UTF-8 support, outgoing connections and multi-homed connects for
+      dynamic DNS.
+
+   5. Debugging message style has been revamped and the secondary debug
+      log made optional, but you can switch it back to ldmud compatible
+      whenever you want.
+
+   6. All new functions are neatly configurable using the settings files
+      introduced by LDMud.
+
+all in all no big deal, but it is being run in various places and
+seems to perform flawlessly, so that in itself is nice (the bugfixes
+submitted on mantis are really good!).
+
+we didn't remove anything of the MUD support, just made it all optional
+and configurable, so you can still run an LPMud on this. there is even a
+new field in the configure.in letting you put the "ldmud" name back in
+place, or whatever you want your driver to call itself.  :)
+
+by the way, you may be interested that the psyced's "mudlib" is architected
+in a way that you can merge it into an existing mud. this brings PSYC, XMPP,
+IRC, RSS and several other features into your system - there has even been
+an experimental adaption of intermud over PSYC.. sort of an intermud 4.
+
+here are all the links:
+	psyclpc		http://lpc.psyc.eu
+	psyced		http://www.psyced.org
+	psyc		http://about.psyc.eu
+
+questions? telnet psyced.org
+
