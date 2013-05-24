@@ -23,10 +23,8 @@ Fennec aims to virtualize and converge all communications, connecting your devic
 directly to that of those you care about.
 
 In other words, Fennec is similar to a combination of Juniper QFabric, Cray Gemini Interconnect, 
-and even more experimental and innovative forms of
-extremely high-performance crossbar optical fabric switching 
-generally used in multiprocessor interconnects
-and extremely high-bandwidth mutlichassis switching fabrics.
+and even more experimental and innovative forms of crossbar optical fabric switching 
+generally used in multiprocessor interconnects and mutlichassis switching fabrics.
 
 Generally speaking, the design is essentially an omega clos hypercube network with 
 linear network coding and flit wormhole switching.
@@ -65,8 +63,8 @@ The list of components and a description of each layer can be found in the "Tech
 
 
 
-Yo Dawg I Herd U Liek Networks
-==============================
+Yo Dawg
+=======
 
 Obviously, the Fennec Overlay, by necessity, will need to have a very sophisticated overlay
 design and architecture to tunnel over the existing Internet Protocol infrastructure and protocols.
@@ -90,7 +88,7 @@ The cryptography will largely be handled by NaCl, GNU Privacy Guard, Off-The-Rec
 The demonstration application will use SCons, wxWidgets, possibly GLADE, and for Windows ports, Py2Exe, 
 NSIS and the BattleTorrent plug-in for NSIS.
 
-The reference implementatio of the proof of concept is nothing like the true Fennec Overlay, but
+The reference implementation of the proof of concept is nothing like the true Fennec Overlay, but
 should be close enough to the high-level design to prove the concept.
 
 
