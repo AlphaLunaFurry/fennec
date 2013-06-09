@@ -10,7 +10,8 @@ It combines many existing but isolated and obscure projects and intitiatives,
 and integrates them into a cohesive whole. 
 
 Fennec will eventually be completely rewritten, with every dependency
-of every component being forked and independantly maintained for perfect integration and cohesion.
+of every component being forked, independantly maintained, and slowly redesigned, rewritten, reimplemented,
+with 100% original and native codebases (released under the WTFPL) for perfect integration and cohesion.
 
 In the meantime, the top-most layers of Fennec can operate over existing low-level
 network protocols.
@@ -25,6 +26,38 @@ directly to that of those you care about.
 By taking the most bold, visionary, and aggressive features and improvements of each model and concept, 
 Fennec becomes a very ambitous, audacious and dominant new project that seeks to pin the Web down
 and take it without mercy.
+
+
+Killer Apps
+-----------
+
+All significant applications and services that make use of the Fennec protocol stack
+are very carefully integrated and designed to scale globally, hundreds of millions
+of concurrent users at any given time in each context.
+
+All of these applications DO NOT USE SERVERS AT ALL. Any server-based protocol should
+be exposed ONLY OVER LOCALHOST AS AN EMULATION.
+
+A very brief list of the primary purposes include:
+
+* SecondLife/OpenSIM grid and sim servers,
+* WoW, EVE Online, RIFT, Planetside 2, etc server emulations, lag-less and player-unlimited,
+* Wiretap-proof large-scale video chat, over 100,000 in each chat with concurrent HD video streams,
+* Familiar Forum, Email, Mailing List, IRC, Jabber/XMPP and other services, fully supporting native clients,
+* Blogging, Microblogging (including Tent, Red and Pump protocols), RSS/ATOM feeds, etc,
+* BitTorrent and Gnutella protocol integration and tunneling
+* Freenet, Retroshare, Tor, I2P, Gnunet, CJDNS and other darknet/anon interoperability and integration,
+* Instant, trivial and automagical VPN tunneling, including both IPv4 and IPv6 zeroconf networking,
+* MMO-RPG, MMO-RTS, MMO-FPS and other large-scale game engines, fully documented and specifified,
+* Extreme paranoid-level security, pseudonymous location-separation, 100% MP-OTR plausable deniability,
+* Rigorously documented and specified protcol stack and daemon API
+* 100% free and open source (all original code is freely available, released under the WTFPL),
+
+There is a ton more functionality that SHOULD be stable and featureful well before official launch and release.
+
+Before the project is complete, source code WILL NOT be published here, only available on an invite-only basis.
+
+The reason for this is to have a fully-functional solution with viable killer applications upon launch.
 
 
 
@@ -48,8 +81,10 @@ design and architecture to tunnel over the existing Internet Protocol infrastruc
 
 By this, I mean UDP with elaborate hole-punching.
 
+Basically, it's a technique I developed personally based on the PWNAT and P2P-STUN methods.
+
 Eventually, however, it will be the other way around, with Fennec carrying 
-legacy IPv4 and IPv6 packets over it similarly to how carrier Ethernet or MPLS is used for today.
+legacy IPv4 and IPv6 packets over it similarly to what carrier Ethernet and MPLS is used for today.
 
 
 
@@ -62,7 +97,7 @@ The overlay networking will use TeleHash, ZeroMQ, MsgPack, libSwift, Twisted, SQ
 
 The cryptography will largely be handled by NaCl, GNU Privacy Guard, Off-The-Record and OpenSSL.
 
-The demonstration application will use SCons, wxWidgets, possibly GLADE, and for Windows ports, Py2Exe, 
+The demonstration application will use SCons, wxWidgets, and for Windows ports, Py2Exe, 
 NSIS and the BattleTorrent plug-in for NSIS.
 
 The reference implementation of the proof of concept is nothing like the true Fennec Overlay, but
@@ -75,5 +110,5 @@ Further Notes
 This Project is in its infancy, and only exists on GitHub at all because my friends have been 
 pestering me incessantly about creating a repo for it.
 
-I hope that this document helps to describe the concept for Fennec and the ambitious scope and visions that 
+I hope that this document helps to describe the concept for Fennec and the ambitious scope and vision that 
 it represents, and how desperately the world actually needs the Fennec Overlay.
