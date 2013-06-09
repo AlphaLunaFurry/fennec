@@ -3,8 +3,9 @@ Fennec Overlay
 
 The Fennec Overlay is a rootless and purely distributed Internet Protocol and Ethernet replacement.
 
-It seeks to make attempts to compromise anonymity and authenticity of users mathematically
-improbable, while only incurring a minimal performance penalty even when fully anonymous.
+It seeks to embed and integrate cryptographic primitives, authentication systems, advanced onion routing,
+active darknet web-of-trust authenticity verification and certificate revocation into the lowest-level
+protocols feasible, while only incurring a minimal performance penalty even when cranked up to 11.
 
 It combines many existing but isolated and obscure projects and intitiatives, 
 and integrates them into a cohesive whole. 
@@ -15,6 +16,18 @@ with 100% original and native codebases (released under the WTFPL) for perfect i
 
 In the meantime, the top-most layers of Fennec can operate over existing low-level
 network protocols.
+
+
+WTFPL
+-----
+
+In case you were curious, the WTFPL is an uncopyright license, the Do What The Fuck You Want Public License.
+
+The full legal code can be found at the repo's root, LICENSE.txt. :3
+
+The TL;DR version is: rather than choosing between hard copyleft or strict propietary licensing, it
+approximates public domain as closely as is possible when surrounded by mind-numbing copyright racketeering.
+
 
 
 Concept
@@ -36,7 +49,7 @@ are very carefully integrated and designed to scale globally, hundreds of millio
 of concurrent users at any given time in each context.
 
 All of these applications DO NOT USE SERVERS AT ALL. Any server-based protocol should
-be exposed ONLY OVER LOCALHOST AS AN EMULATION.
+be exposed ONLY OVER LOCALHOST AS AN EMULATION OR GATEWAY.
 
 A very brief list of the primary purposes include:
 
@@ -60,6 +73,11 @@ Before the project is complete, source code WILL NOT be published here, only ava
 The reason for this is to have a fully-functional solution with viable killer applications upon launch.
 
 
+Although it sounds like the massively multiplayer shared game worlds or secondlife-like virtual worlds
+would be genocide-inducingly lag-infested, the sad truth is that a P2P overlay is almost certainly
+going to be shockingly lag-free, with zero character rubberbanding, and instantanious toon rezzing.
+
+That is pretty sad and pathetic.
 
 Proof-of-Concept
 ----------------
@@ -86,6 +104,9 @@ Basically, it's a technique I developed personally based on the PWNAT and P2P-ST
 Eventually, however, it will be the other way around, with Fennec carrying 
 legacy IPv4 and IPv6 packets over it similarly to what carrier Ethernet and MPLS is used for today.
 
+In other words, the primary functionality of extremely-scalable VPN networking will become
+the dominant IP internetwork, rather than the broken, laughingly-insecure, gum-and-paperclip
+Internet we know and love. This crap has got to go.
 
 
 This Project
@@ -101,14 +122,15 @@ The demonstration application will use SCons, wxWidgets, and for Windows ports, 
 NSIS and the BattleTorrent plug-in for NSIS.
 
 The reference implementation of the proof of concept is nothing like the true Fennec Overlay, but
-should be close enough to the high-level design to prove the concept.
+should be a close enough approximation of the high-level design to prove the concept.
 
 
 Further Notes
 =============
 
 This Project is in its infancy, and only exists on GitHub at all because my friends have been 
-pestering me incessantly about creating a repo for it.
+pestering me incessantly about creating a repository for it.
 
-I hope that this document helps to describe the concept for Fennec and the ambitious scope and vision that 
-it represents, and how desperately the world actually needs the Fennec Overlay.
+I hope that the documentation, whitepapers, dissertations, treatises, manuals and specifications
+help to describe the concept for Fennec and the ambitious scope and vision that it represents, 
+and how desperately the world actually needs the Fennec Overlay.
